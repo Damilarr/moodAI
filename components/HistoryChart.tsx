@@ -25,6 +25,9 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 const HistoryChart = ({ data }) => {
+  if (!data.length) {
+    return <div>No History Available, Try making Some Journal Entries</div>;
+  }
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={data} width={300} height={100}>

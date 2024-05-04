@@ -1,6 +1,10 @@
 import { SignIn } from "@clerk/nextjs";
 const SignInPage = () => {
-  return <SignIn path="/sign-in" />;
+  return (
+    <div className="w-full h-screen flex justify-center items-center">
+      <SignIn path="/sign-in" fallbackRedirectUrl="/journal" />
+    </div>
+  );
 };
 
 export default SignInPage;

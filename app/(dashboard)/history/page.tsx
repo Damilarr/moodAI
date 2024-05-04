@@ -23,8 +23,9 @@ const History = async () => {
   const { analyses, average } = await getData();
 
   return (
-    <div className="w-full h-full px-4 py-4">
-      <div>{`Avg. Sentiment ${average}`}</div>
+    <div className="w-full h-full px-4 py-4 bg-white text-black">
+      <h2 className="font-bold text-xl md:text-2xl">History</h2>
+      <div>{`Avg. Sentiment : ${average ? average : "0"}`}</div>
       <div className="w-full h-full">
         <HistoryChart data={analyses} />
       </div>
