@@ -13,7 +13,7 @@ export default function Home() {
         </p>
         <div>
           <Link href="/journal">
-            <button className="bg-[#226c70] px-4 py-2 rounded-lg text-xl ">
+            <button className="bg-blue-500 px-4 py-2 rounded-lg text-xl ">
               Get Started
             </button>
           </Link>

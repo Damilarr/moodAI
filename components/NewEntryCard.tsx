@@ -12,9 +12,9 @@ const NewEntryCard = () => {
   return (
     <button
       onClick={handleClick}
-      className="group bg-gray-900/30 py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/40 hover:smooth-hover"
+      className="group py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-200 hover:smooth-hover bg-gray-800 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10"
     >
-      <div className="bg-gray-900/70 text-white/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center">
+      <div className="bg-cyan-500/80 text-black/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10"
@@ -30,7 +30,7 @@ const NewEntryCard = () => {
           />
         </svg>
       </div>
-      <span className="text-white/50 group-hover:text-white group-hover:smooth-hover text-center">
+      <span className="text-black group-hover:text-black/80 font-semibold group-hover:smooth-hover text-center">
         New Entry
       </span>
     </button>

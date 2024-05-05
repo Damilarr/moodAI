@@ -34,7 +34,7 @@ const HistoryChart = ({ data }) => {
         <Line
           type="monotone"
           dataKey="sentimentScore"
-          stroke="#8884d8"
+          stroke="#1E88E5"
           strokeWidth={2}
           activeDot={{ r: 8 }}
         />

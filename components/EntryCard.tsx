@@ -1,7 +1,7 @@
 const EntryCard = ({ entry }: any) => {
   const date = new Date(entry.createdAt).toDateString();
   return (
-    <div className="relative divide-y  divide-gray-200 group bg-white py-5 sm:py-10 px-4 flex flex-col space-y-2 cursor-pointer rounded-lg hover:bg-white/95 hover:smooth-hover">
+    <div className="relative divide-y shadow-md divide-gray-200 group bg-white py-5 sm:py-10 px-4 flex flex-col space-y-2 cursor-pointer rounded-lg hover:bg-white/95 hover:smooth-hover">
       <h4 className="text-black text-2xl font-bold capitalize text-left">
         {entry.analysis?.subject || "Subject"}
       </h4>

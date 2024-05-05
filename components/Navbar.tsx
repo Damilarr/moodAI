@@ -13,9 +13,9 @@ const Navbar = () => {
       <Link
         className={` link ${
           pathname === "/"
-            ? "bg-gray-800 text-white"
-            : "text-white/50 hover:text-white"
-        } p-4 relative group inline-flex justify-center rounded-md hover:bg-gray-800  smooth-hover`}
+            ? "bg-[#00497a] text-white"
+            : "text-[#333] hover:text-white"
+        } p-4 relative group inline-flex justify-center rounded-full hover:bg-[#00497a]  smooth-hover`}
         href="/"
       >
         <svg
@@ -26,33 +26,33 @@ const Navbar = () => {
         >
           <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
         </svg>
-        <span className="group-hover:opacity-100 transition-opacity bg-black px-3 py-1 text-sm text-gray-100 rounded-md absolute right-0 -top-3  translate-x-12 opacity-0 m-4 mx-auto">
+        <span className="group-hover:opacity-100 transition-opacity bg-black px-3 py-1 text-sm text-gray-100 rounded-full absolute right-0 -top-3  translate-x-12 opacity-0 m-4 mx-auto">
           Home
         </span>
       </Link>
       <Link
         className={` link ${
           pathname === "/journal"
-            ? "bg-gray-800 text-white"
-            : "text-white/50 hover:text-white"
-        } hover:bg-gray-800 relative group  p-4 inline-flex justify-center rounded-md`}
+            ? "bg-[#333333] text-white"
+            : "text-[#333] hover:text-white"
+        } hover:bg-[#00497a]  relative group  p-4 inline-flex justify-center rounded-full`}
         href="/journal"
       >
         <FontAwesomeIcon className="text-xl" icon={faFolderOpen} />
-        <span className="group-hover:opacity-100 transition-opacity bg-black px-3 py-1 text-sm text-gray-100 rounded-md absolute right-0 -top-3  translate-x-3/4 opacity-0 m-4 mx-auto">
+        <span className="group-hover:opacity-100 transition-opacity bg-black px-3 py-1 text-sm text-gray-100 rounded-full absolute right-0 -top-3  translate-x-3/4 opacity-0 m-4 mx-auto">
           Journals
         </span>
       </Link>
       <Link
         className={` group link ${
           pathname === "/history"
-            ? "bg-gray-800 text-white"
-            : "text-white/50 hover:text-white"
-        } relative p-4 inline-flex justify-center rounded-md hover:bg-gray-800  smooth-hover`}
+            ? "bg-[#333] text-white"
+            : "text-[#333] hover:text-white"
+        } relative p-4 inline-flex justify-center rounded-full hover:bg-[#00497a]  smooth-hover`}
         href="/history"
       >
         <FontAwesomeIcon className="text-xl" icon={faChartLine} />
-        <span className="group-hover:opacity-100 transition-opacity bg-black px-3 py-1 text-sm text-gray-100 rounded-md absolute right-0 -top-3  translate-x-3/4 opacity-0 m-4 mx-auto">
+        <span className="group-hover:opacity-100 transition-opacity bg-black px-3 py-1 text-sm text-gray-100 rounded-full absolute right-0 -top-3  translate-x-3/4 opacity-0 m-4 mx-auto">
           History
         </span>
       </Link>

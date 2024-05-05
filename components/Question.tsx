@@ -23,22 +23,22 @@ const Question = () => {
     <div>
       <form onSubmit={handleSubmit} className="flex space-x-2">
         <input
-          className="border border-black/20 px-4 py-2 text-lg rounded-lg"
+          className="focus:ring-blue-500 outline-0 ring-1 focus:border-blue-500 border px-4 py-2 text-lg rounded-lg"
           type="text"
           value={value}
           onChange={handleChange}
-          placeholder="Ask a question"
+          placeholder="Ask about your mood/entries"
         />
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-400 px-4 py-2 rounded-lg text-lg"
+          className="bg-blue-500 px-4 py-2 rounded-lg text-lg"
         >
           Ask
         </button>
       </form>
-      {loading && <p>Loading...</p>}
-      {response && <p>{response}</p>}
+      {loading && <p>Searching...</p>}
+      {response && <p className="py-2 text-black">{response}</p>}
     </div>
   );
 };
