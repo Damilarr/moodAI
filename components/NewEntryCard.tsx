@@ -14,7 +14,7 @@ const NewEntryCard = () => {
       onClick={handleClick}
       className="group py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-200 hover:smooth-hover bg-gray-800 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10"
     >
-      <div className="bg-cyan-500/80 text-black/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center">
+      <div className="bg-blue-500/80 text-black/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-10 w-10"

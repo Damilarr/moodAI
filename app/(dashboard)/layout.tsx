@@ -10,7 +10,7 @@ const links = [
 
 const DashboardLayout = ({ children }) => {
   return (
-    <div className="h-screen flex items-center justify-center w-screen md:overflow-hidden">
+    <div className="h-screen flex pb-4 items-center justify-center w-screen">
       <div className="bg-transparent flex-1 flex flex-col lg:space-y-0 lg:flex-row lg:space-x-10 sm:p-6 sm:my-2  h-full">
         {/* <!-- Navigation --> */}
         <div className="bg-gradient-to-l sm:bg-gradient-to-r from-cyan-500 to-blue-500 px-2 lg:px-4 py-2 lg:py-10 sm:rounded-xl flex lg:flex-col justify-between">
@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }) => {
           </div>
         </div>
         {/* <!-- Content --> */}
-        <div className="w-full h-full">{children}</div>
+        <div className="w-full h-full overflow-scroll">{children}</div>
       </div>
     </div>
   );

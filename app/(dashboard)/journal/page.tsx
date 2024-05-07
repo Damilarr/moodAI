@@ -23,7 +23,7 @@ const getEntries = async () => {
 const JournalPage = async () => {
   const entries = await getEntries();
   return (
-    <div className="flex flex-col  w-full h-fit px-3">
+    <div className="flex flex-col pb-4 w-full h-fit px-3">
       <h2 className="mb-3 sm:mb-4 md:mb-8 text-3xl py-2">Journals</h2>
       <div>
         <Question />

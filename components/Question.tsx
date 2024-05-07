@@ -27,18 +27,22 @@ const Question = () => {
           type="text"
           value={value}
           onChange={handleChange}
-          placeholder="Ask about your mood/entries"
+          placeholder="Ask about your mood,entries"
         />
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-500 px-4 py-2 rounded-lg text-lg"
+          className="bg-blue-500 font-semibold text-gray-200 px-4 py-2 rounded-lg text-lg"
         >
           Ask
         </button>
       </form>
       {loading && <p>Searching...</p>}
-      {response && <p className="py-2 text-black">{response}</p>}
+      {response && !loading && (
+        <p className="py-2 text-black text-sm sm:text-base md:text-lg">
+          {response}
+        </p>
+      )}
     </div>
   );
 };
