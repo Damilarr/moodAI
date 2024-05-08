@@ -16,7 +16,6 @@ export const POST = async (request) => {
       id: true,
     },
   });
-
   const answer = await qa(question, entries);
   return NextResponse.json({ data: answer });
 };

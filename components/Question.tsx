@@ -2,7 +2,6 @@
 
 import { askQuestion } from "@/utils/api";
 import { useState } from "react";
-import { set } from "zod";
 
 const Question = () => {
   const [value, setValue] = useState("");

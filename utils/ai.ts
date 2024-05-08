@@ -63,25 +63,35 @@ export const analyze = async (content: any) => {
     console.log(error, "could not parse o");
   }
 };
-export const qa = async (question: any, entries: any) => {
-  const docs = entries.map((entry: any) => {
-    return new Document({
+function* createDocuments(entries) {
+  for (const entry of entries) {
+    yield new Document({
       pageContent: entry.content,
       metadata: { id: entry.id, createdAt: entry.createdAt },
     });
-  });
+  }
+}
+export const qa = async (question: any, entries: any) => {
+  const docs = Array.from(createDocuments(entries)); // Convert generator to array
   const model = new ChatGoogleGenerativeAI({
     model: "gemini-pro",
     temperature: 0,
-    maxOutputTokens: 2048,
+    maxOutputTokens: 1024,
   });
   const chain = loadQARefineChain(model);
+
   const embeddings = new GoogleGenerativeAIEmbeddings();
+  console.time("mem vector init");
   const store = await MemoryVectorStore.fromDocuments(docs, embeddings);
+  console.timeEnd("mem vector init");
+  console.time("similarity search");
   const relevantDocs = await store.similaritySearch(question);
+  console.timeEnd("similarity search");
+  console.time("invoke");
   const res = await chain.invoke({
     input_documents: relevantDocs,
     question,
   });
+  console.timeEnd("invoke");
   return res.output_text;
 };

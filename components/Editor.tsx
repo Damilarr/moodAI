@@ -1,10 +1,12 @@
 "use client";
 
-import { updateEntry } from "@/utils/api";
+import { deleteEntry, updateEntry } from "@/utils/api";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAutosave } from "react-autosave";
 
 const Editor = ({ entry }: any) => {
+  const router = useRouter();
   const [value, setValue] = useState(entry.content);
   const [isLoading, setIsLoading] = useState(false);
   const [analysis, setAnalysis] = useState(entry.analysis);
@@ -26,6 +28,16 @@ const Editor = ({ entry }: any) => {
       }
     },
   });
+  const handleDelete = async () => {
+    try {
+      setIsLoading(true);
+      const del = await deleteEntry(entry.id);
+      setIsLoading(false);
+      router.replace("/journal");
+    } catch (error) {
+      console.log(error, "could not delete entry");
+    }
+  };
   return (
     <div className="w-full h-4/5 flex justify-end flex-col-reverse bg-transparent md:grid grid-cols-3">
       <div className=" md:col-span-2 h-1/2 md:h-auto flex-1">
@@ -39,6 +51,7 @@ const Editor = ({ entry }: any) => {
           id=""
           className="w-full h-full outline-0 focus:ring-blue-500 ring-1 focus:border-blue-500 border bg-[#fcfcfc] p-4 md:p-8 text-xl full"
           value={value}
+          disabled={isLoading}
           onChange={(e) => setValue(e.target.value)}
         ></textarea>
       </div>
@@ -60,6 +73,13 @@ const Editor = ({ entry }: any) => {
                 <span className="text-right">{data.value}</span>
               </li>
             ))}
+            <button
+              disabled={isLoading}
+              onClick={handleDelete}
+              className="shadow-md rounded-t-none p-2 text-white rounded-md flex justify-between space-x-3 mx-auto bg-red-500 items-center"
+            >
+              Delete Entry
+            </button>
           </ul>
         </div>
       </div>

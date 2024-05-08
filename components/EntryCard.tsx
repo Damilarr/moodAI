@@ -1,3 +1,6 @@
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const EntryCard = ({ entry }: any) => {
   const date = new Date(entry.createdAt).toDateString();
   return (
