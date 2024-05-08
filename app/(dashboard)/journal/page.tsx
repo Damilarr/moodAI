@@ -1,8 +1,10 @@
 import EntryCard from "@/components/EntryCard";
 import NewEntryCard from "@/components/NewEntryCard";
 import Question from "@/components/Question";
+import { createFURL } from "@/utils/api";
 import { getUserByClerkId } from "@/utils/auth";
 import { prisma } from "@/utils/db";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
 const getEntries = async () => {
@@ -21,7 +23,7 @@ const getEntries = async () => {
   return entries;
 };
 const JournalPage = async () => {
-  const entries = await getEntries();
+  let entries = await getEntries();
   return (
     <div className="flex flex-col pb-4 w-full h-fit px-3">
       <h2 className="mb-3 sm:mb-4 md:mb-8 text-3xl py-2">Journals</h2>

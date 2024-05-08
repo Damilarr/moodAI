@@ -1,6 +1,9 @@
 const createURL = (path: string) => {
   return window.location.origin + path;
 };
+export const createFURL = () => {
+  return window.location;
+};
 export const createNewEntry = async () => {
   const res = await fetch(new Request(createURL("/api/journal")), {
     method: "POST",

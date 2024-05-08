@@ -1,6 +1,7 @@
 "use client";
 
 import { deleteEntry, updateEntry } from "@/utils/api";
+import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAutosave } from "react-autosave";
@@ -34,6 +35,7 @@ const Editor = ({ entry }: any) => {
       const del = await deleteEntry(entry.id);
       setIsLoading(false);
       router.replace("/journal");
+      revalidatePath("/journal");
     } catch (error) {
       console.log(error, "could not delete entry");
     }

@@ -1,13 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { UserButton } from "@clerk/nextjs";
-import Link from "next/link";
-import React from "react";
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/journal", label: "Journal" },
-  { href: "/history", label: "History" },
-];
-
+import React, { Suspense } from "react";
+import LoadingComp from "./journal/[id]/loading";
 const DashboardLayout = ({ children }) => {
   return (
     <div className="h-screen flex pb-4 items-center justify-center w-screen">
@@ -20,7 +14,9 @@ const DashboardLayout = ({ children }) => {
           </div>
         </div>
         {/* <!-- Content --> */}
-        <div className="w-full h-full overflow-scroll">{children}</div>
+        <Suspense fallback={<LoadingComp />}>
+          <div className="w-full h-full overflow-scroll">{children}</div>
+        </Suspense>
       </div>
     </div>
   );
