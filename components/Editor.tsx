@@ -20,7 +20,7 @@ const Editor = ({ entry }: any) => {
   useAutosave({
     data: value,
     onSave: async (_value) => {
-      if (_value !== entry.content) {
+      if (_value !== entry.content && _value !== "") {
         setIsLoading(true);
         const data = await updateEntry(entry.id, _value);
         setAnalysis(data.analysis);

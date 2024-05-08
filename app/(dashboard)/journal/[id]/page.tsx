@@ -19,7 +19,6 @@ const getEntry = async (id: string) => {
 };
 const EntryPage = async ({ params }: any) => {
   const entry = await getEntry(params.id);
-  console.log(entry, "entry");
   return (
     <div className="h-screen overflow-hidden w-full">
       <Editor entry={entry} />
