@@ -53,6 +53,7 @@ const Editor = ({ entry }: any) => {
           id=""
           className="w-full h-full outline-0 focus:ring-blue-500 ring-1 focus:border-blue-500 border bg-[#fcfcfc] p-4 md:p-8 text-xl full"
           value={value}
+          placeholder="Write about your day, how you feel or what's up with you!"
           disabled={isLoading}
           onChange={(e) => setValue(e.target.value)}
         ></textarea>

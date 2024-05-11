@@ -2,16 +2,22 @@
 
 import { createNewEntry } from "@/utils/api";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { set } from "zod";
 
 const NewEntryCard = () => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handleClick = async () => {
+    setLoading(true);
     const data = await createNewEntry();
     router.push(`/journal/${data.id}`);
+    setLoading(false);
   };
   return (
     <button
       onClick={handleClick}
+      disabled={loading}
       className="group py-10 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-200 hover:smooth-hover bg-gray-800 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10"
     >
       <div className="bg-blue-500/80 text-black/50 group-hover:text-white group-hover:smooth-hover flex w-20 h-20 rounded-full items-center justify-center">

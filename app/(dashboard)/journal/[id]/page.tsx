@@ -1,11 +1,10 @@
 import Editor from "@/components/Editor";
 import { getUserByClerkId } from "@/utils/auth";
-import { prisma } from "@/utils/db";
-import { Suspense } from "react";
-import LoadingComp from "./loading";
+import { prisma, warmUpDb } from "@/utils/db";
 
 const getEntry = async (id: string) => {
   const user = await getUserByClerkId();
+  await warmUpDb();
   const entry = await prisma.journalEntry.findUnique({
     where: {
       userId_id: {

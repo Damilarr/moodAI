@@ -11,3 +11,11 @@ export const prisma =
   });
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+export async function warmUpDb() {
+  try {
+    await prisma.$queryRaw`SELECT 1`;
+    console.log("Database warmed up!");
+  } catch (error) {
+    console.error("Failed to warm up the database", error);
+  }
+}

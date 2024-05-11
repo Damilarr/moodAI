@@ -1,14 +1,13 @@
 import EntryCard from "@/components/EntryCard";
 import NewEntryCard from "@/components/NewEntryCard";
 import Question from "@/components/Question";
-import { createFURL } from "@/utils/api";
 import { getUserByClerkId } from "@/utils/auth";
-import { prisma } from "@/utils/db";
-import { revalidatePath } from "next/cache";
+import { prisma, warmUpDb } from "@/utils/db";
 import Link from "next/link";
 
 const getEntries = async () => {
   const user = await getUserByClerkId();
+  await warmUpDb();
   const entries = await prisma.journalEntry.findMany({
     where: {
       userId: user.id,

@@ -1,9 +1,10 @@
 import { getUserByClerkId } from "@/utils/auth";
-import { prisma } from "@/utils/db";
+import { prisma, warmUpDb } from "@/utils/db";
 import HistoryChart from "@/components/HistoryChart";
 
 const getData = async () => {
   const user = await getUserByClerkId();
+  await warmUpDb();
   const analyses = await prisma.analysis.findMany({
     where: {
       userId: user.id,
